@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SekawanTech.id | Proyek Lengkap</title>
+  <style>
+    :root {
+      --primary-color: #000;
+      --accent-color: #e50914;
+      --text-light: #f1f1f1;
+    }
+
+    body {
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      background:#111;
+      color: var(--text-light);
+      overflow-x: hidden;
+    }
+
+    header, footer {
+      text-align:center;
+      padding:20px;
+      background: var(--primary-color);
+      color:#aaa;
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    h1,h2 {
+      color: var(--accent-color);
+      text-align:center;
+      margin:20px 0;
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .project-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+      padding:20px;
+      opacity:0;
+      transform:translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .project-grid.visible {
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .project-card {
+      background: rgba(0,0,0,0.85);
+      padding:20px;
+      border-radius:12px;
+      text-align:center;
+      box-shadow:0 0 15px rgba(229,9,20,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .project-card:hover {
+      transform: scale(1.02);
+      box-shadow:0 0 25px rgba(229,9,20,0.3);
+    }
+
+    .project-card img {
+      width:100%;
+      height:200px;
+      object-fit:cover;
+      border-radius:8px;
+      margin-bottom:15px;
+      transition: transform 0.3s;
+    }
+
+    .project-card img:hover {
+      transform: scale(1.05);
+    }
+
+    .project-card p {
+      font-size:0.9em;
+      line-height:1.5;
+    }
+
+    .btn-back {
+      display:inline-block;
+      margin:20px 0;
+      padding:12px 25px;
+      border-radius:8px;
+      background: var(--accent-color);
+      color:white;
+      font-weight:600;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .btn-back:hover {
+      transform: scale(1.05);
+      background: #b20610;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Proyek Lengkap</h1>
+    <p>Semua proyek & pekerjaan kami</p>
+    <a href="../index.html" class="btn-back">← Kembali ke Beranda</a>
+  </header>
+
+  <section class="project-grid" id="project-grid">
+    <div class="project-card">
+      <img src="../images/proyek1.jpg" alt="Proyek 1">
+      <p><strong>Overhaul Mesin Produksi</strong></p>
+      <p>Optimasi sistem produksi untuk efisiensi maksimal.</p>
+    </div>
+
+    <div class="project-card">
+      <img src="../images/proyek2.jpg" alt="Proyek 2">
+      <p><strong>Maintenance Line A</strong></p>
+      <p>Perawatan rutin line produksi untuk menjaga kestabilan output.</p>
+    </div>
+
+    <div class="project-card">
+      <img src="../images/proyek3.jpg" alt="Proyek 3">
+      <p><strong>Repair Sistem Hidrolik</strong></p>
+      <p>Perbaikan sistem tekanan tinggi dengan penggantian seal & filter.</p>
+    </div>
+
+    <div class="project-card">
+      <img src="../images/proyek4.jpg" alt="Proyek 4">
+      <p><strong>Upgrade Sistem Kontrol</strong></p>
+      <p>Peningkatan otomatisasi & efisiensi produksi dengan SCADA terbaru.</p>
+    </div>
+
+    <div class="project-card">
+      <img src="../images/proyek5.jpg" alt="Proyek 5">
+      <p><strong>Overhaul Mesin Cetak</strong></p>
+      <p>Pembongkaran, penggantian komponen, & optimasi mesin cetak utama.</p>
+    </div>
+
+    <div class="project-card">
+      <img src="../images/proyek6.jpg" alt="Proyek 6">
+      <p><strong>Maintenance Preventive</strong></p>
+      <p>Program maintenance rutin untuk mengurangi downtime & meningkatkan umur mesin.</p>
+    </div>
+
+    <!-- Tambahkan card lain sesuai kebutuhan -->
+  </section>
+
+  <footer>
+    <p>© 2025 SekawanTech.id</p>
+  </footer>
+
+  <script>
+    // Animasi masuk saat scroll
+    const projectGrid = document.getElementById('project-grid');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.2});
+
+    observer.observe(projectGrid);
+  </script>
+
+</body>
+</html>

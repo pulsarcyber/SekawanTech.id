@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SekawanTech.id | Ahli Perawatan Mesin Industri</title>
+  <style>
+    
+
+    :root {
+      --primary-color: #000;
+      --accent-color: #e50914;
+      --text-light: #f1f1f1;
+    }
+    html { scroll-behavior: smooth; }
+    body { margin:0; font-family:"Poppins", sans-serif; background:#111; color:var(--text-light); overflow-x:hidden; }
+
+    /* HEADER */
+    header { background-color: var(--primary-color); display: flex; justify-content: space-between; align-items: center; padding: 15px 25px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(229,9,20,0.3);}
+    .logo a { color: var(--accent-color); text-decoration:none; font-size:1.6em; font-weight:bold; text-shadow:0 0 10px rgba(229,9,20,0.6);}
+    .nav-links { list-style:none; display:flex; gap:25px; }
+    .nav-links li { position:relative; }
+    .nav-links a { color:white; text-decoration:none; font-weight:500; position:relative; transition:color 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color:var(--accent-color); }
+
+    /* Dropdown */
+    .nav-links ul { display:none; position:absolute; top:35px; left:0; background:#000; list-style:none; padding:10px 0; min-width:180px; border-radius:8px; }
+    .nav-links li:hover ul { display:block; }
+    .nav-links ul li { padding:5px 20px; }
+    .nav-links ul li a { color:white; font-weight:400; }
+/* Desktop dropdown */
+.nav-links li.dropdown {
+  position: relative;
+}
+
+.nav-links li.dropdown ul {
+  display: none;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background: #000;
+  list-style: none;
+  padding: 10px 0;
+  min-width: 200px;
+  border-radius: 6px;
+  z-index: 1000;
+}
+
+.nav-links li.dropdown:hover ul {
+  display: block;
+}
+
+.nav-links li.dropdown ul li {
+  padding: 5px 20px;
+}
+
+.nav-links li.dropdown ul li a {
+  color: #fff;
+  font-weight: 400;
+}
+
+/* Mobile dropdown */
+@media (max-width:768px){
+  .nav-links li.dropdown ul {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background: transparent;
+    position: static;
+    padding: 0;
+  }
+  .nav-links li.dropdown.open ul {
+    display: flex;
+  }
+}
+
+    /* HAMBURGER */
+    .hamburger { display:none; flex-direction:column; cursor:pointer; gap:5px; z-index:1100; }
+    .bar { width:25px; height:3px; background:white; border-radius:5px; transition: all 0.3s ease; }
+    @media (max-width:768px) {
+      .nav-links { position:fixed; top:0; right:-100%; height:100vh; width:70%; background:#000; flex-direction:column; justify-content:center; align-items:center; transition:right 0.4s ease; z-index:1000; }
+      .nav-links.active { right:0; }
+      .nav-links li ul { position:static; display:none; background:transparent; padding:0; }
+      .nav-links li.open ul { display:flex; flex-direction:column; gap:10px; }
+      .hamburger { display:flex; }
+    }
+    .hamburger.open .bar:nth-child(1) { transform: rotate(45deg) translateY(8px); }
+    .hamburger.open .bar:nth-child(2) { opacity:0; }
+    .hamburger.open .bar:nth-child(3) { transform: rotate(-45deg) translateY(-8px); }
+
+    /* OVERLAY */
+    .overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); opacity:0; visibility:hidden; transition:0.4s; z-index:900; }
+    .overlay.active { opacity:1; visibility:visible; }
+
+    /* HERO & Parallax sections */
+    .hero, #about, #kenapa, #layanan, #projects, #testimoni {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(17,17,17,0.6)), url('images/mesin-industri.jpg') center/cover no-repeat;
+      background-attachment: fixed;
+      color:white;
+    }
+    /* ====== Background Section Kontak Perusahaan ====== */
+/* ====== Background Section Anggota Kami ====== */
+/* ====== Background Section Anggota Kami ====== */
+/* ====== Samakan background semua section ====== */
+#contact { background:#111; }
+
+#company-contact,
+#team {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(17,17,17,0.6)),
+              url('images/mesin-industri.jpg') center/cover no-repeat;
+  background-attachment: fixed;
+  color: #fff;
+}
+
+
+
+
+
+
+#company-contact {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(17,17,17,0.6)), 
+              url('images/mesin-industri.jpg') center/cover no-repeat;
+  background-attachment: fixed;
+  color: #fff;
+}
+/* ====== Tampilan Section Kontak Perusahaan Selaras ====== */
+#company-contact {
+  position: relative;
+  background: 
+    linear-gradient(rgba(0,0,0,0.6), rgba(17,17,17,0.6)),
+    url('images/mesin-industri.jpg') center/cover no-repeat;
+  background-attachment: fixed;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Lapisan semi-transparan agar teks terlihat jelas */
+#company-contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55); /* sedikit gelap agar teks kontras */
+  z-index: 0;
+}
+
+/* Pastikan isi di atas lapisan transparan */
+#company-contact * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Animasi dan form tetap seperti sebelumnya */
+#company-contact h2, 
+#company-contact p, 
+#company-contact input, 
+#company-contact textarea, 
+#company-contact button {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+#company-contact .visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#company-contact .contact-form {
+  background: rgba(0,0,0,0.6);
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 15px rgba(229,9,20,0.15);
+}
+
+
+
+    .hero { text-align:center; padding:120px 20px; overflow:hidden; }
+    .hero h1 { font-size:2.8em; color:var(--accent-color); opacity:0; transform:translateY(20px); animation: fadeUp 1s ease forwards; }
+    .hero p { opacity:0; animation: fadeIn 1.5s ease forwards 0.6s; }
+
+    @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeIn { to { opacity:1; } }
+
+    .btn-primary, .btn-secondary { padding:12px 25px; border-radius:8px; text-decoration:none; font-weight:600; display:inline-block; margin-top:25px; transition: all 0.3s ease; }
+    .btn-primary { background-color: var(--accent-color); color:white; box-shadow:0 0 15px rgba(229,9,20,0.4);}
+    .btn-primary:hover { background-color:#b20610; transform:translateY(-3px);}
+    .btn-secondary { color: var(--accent-color); border:2px solid var(--accent-color); background:transparent; margin-left:10px;}
+    .btn-secondary:hover { background: var(--accent-color); color:white;}
+
+    /* Section */
+    section { padding:80px 20px; text-align:center; border-top:1px solid rgba(255,255,255,0.05); }
+    section h2 { color: var(--accent-color); font-size:2em; margin-bottom:20px; opacity:0; transform:translateY(20px); transition:0.8s ease; }
+    section p, section .card { opacity:0; transform:translateY(20px); transition:0.8s ease; }
+    .visible { opacity:1 !important; transform:translateY(0) !important; }
+
+    /* Card & ikon */
+    .card { background: rgba(0,0,0,0.85); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:25px 20px 25px 60px; margin:20px auto; max-width:500px; box-shadow:0 0 15px rgba(229,9,20,0.1); transition: transform 0.3s; position: relative; }
+    .card:hover { transform: scale(1.02); box-shadow:0 0 25px rgba(229,9,20,0.3); }
+    .card::before { content:""; position:absolute; left:20px; top:25px; width:25px; height:25px; background-size:cover; background-repeat:no-repeat; background-position:center; }
+
+    /* Ikon Layanan */
+    #layanan .card:nth-child(1)::before { background-image: url('images/ikon-maintenance.png'); }
+    #layanan .card:nth-child(2)::before { background-image: url('images/ikon-repair.png'); }
+    #layanan .card:nth-child(3)::before { background-image: url('images/ikon-overhaul.png'); }
+
+    /* Buble Gambar Layanan */
+    .layanan-images { display:flex; justify-content:center; gap:25px; margin-bottom:50px; flex-wrap:wrap; }
+    .buble-img img { width:220px; height:220px; border-radius:50%; object-fit:cover; border:4px solid var(--accent-color); box-shadow:0 0 20px rgba(229,9,20,0.4); transition: transform 0.3s; }
+    .buble-img img:hover { transform:scale(1.05); }
+    @media(max-width:768px){ .buble-img img { width:180px; height:180px; } }
+    @media(max-width:480px){ .buble-img img { width:140px; height:140px; } }
+
+    /* Team grid */
+    .team-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:30px; justify-items:center; }
+    .team-card { background:rgba(0,0,0,0.8); padding:20px; border-radius:15px; text-align:center; transition: transform 0.3s, box-shadow 0.3s; opacity:0; transform:translateY(20px); cursor:pointer; }
+    .team-card img { width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:15px; transition:transform 0.3s; }
+    .team-card h3 { margin:0; font-size:1.1em; color:white; }
+    .team-card p { margin:5px 0 0; font-size:0.9em; color:#aaa; }
+    .team-card:hover { transform:translateY(-5px); box-shadow:0 0 20px rgba(229,9,20,0.6); }
+    .team-card:hover img { transform:scale(1.05); }
+    .team-card.visible { opacity:1; transform:translateY(0); }
+
+    /* Modal */
+    #modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:10000; }
+    #modal .modal-content { background:#111; padding:30px; border-radius:12px; max-width:400px; text-align:center; position:relative; color:white; }
+    #modal-close { position:absolute; top:10px; right:15px; cursor:pointer; font-size:20px; }
+
+    /* Form Kirim Pesan */
+    .contact-form { max-width:500px; margin:20px auto; text-align:left; }
+    .contact-form input, .contact-form textarea { width:100%; padding:10px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc; background:#111; color:white; }
+    .contact-form button { padding:12px 25px; background:var(--accent-color); color:white; border:none; border-radius:8px; cursor:pointer; }
+
+    footer { text-align:center; padding:30px; font-size:0.9em; background:#000; color:#aaa; border-top:1px solid #111; }
+  /* INTRO SCREEN */
+#intro-screen {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 99999;
+}
+
+.intro-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.intro-gallery img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.intro-gallery img.active { opacity: 1; }
+
+.intro-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+.intro-overlay h1 { font-size: 2em; margin-bottom: 10px; color: #e50914; }
+.intro-overlay p { margin-bottom: 25px; }
+#enter-site {
+  background: #e50914;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.3s, background 0.3s;
+}
+#enter-site:hover { transform: scale(1.05); background: #b20610; }
+
+body.intro-hidden {
+  overflow: hidden;
+}
+/* ====== Tampilan & Efek VISI MISI SAMA SEPERTI SECTION LAIN ====== */
+#visi-misi {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(17,17,17,0.6)), 
+              url('images/mesin-industri.jpg') center/cover no-repeat;
+  background-attachment: fixed;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+#visi-misi h2 {
+  color: var(--accent-color);
+  font-size: 2em;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.8s ease;
+}
+
+#visi-misi .card {
+  background: rgba(0,0,0,0.85);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 25px 20px 25px 60px;
+  margin: 20px auto;
+  max-width: 700px;
+  box-shadow: 0 0 15px rgba(229,9,20,0.1);
+  transition: transform 0.3s;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+#visi-misi .card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(229,9,20,0.3);
+}
+
+#visi-misi .visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+#visi-misi ul {
+  list-style-type: disc;
+  text-align: left;
+  margin-left: 40px;
+  margin-top: 10px;
+}
+#visi-misi li {
+  margin: 6px 0;
+  line-height: 1.6;
+}
+/* Efek animasi scroll untuk bagian Kontak */
+#company-contact h2,
+#company-contact p,
+#company-contact input,
+#company-contact textarea,
+#company-contact button {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+#company-contact .visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  /* Efek transisi antar halaman */
+  .page-transition {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  body.loaded .page-transition {
+    opacity: 1;
+  }
+</style>
+
+
+
+  </style>
+</head>
+<body>
+    <!-- INTRO LOCK SCREEN -->
+     <script>
+  // Cek status dari awal — sebelum apapun dirender
+  if (localStorage.getItem('enteredSite') === 'true') {
+    document.addEventListener("DOMContentLoaded", () => {
+      const intro = document.getElementById("intro-screen");
+      if (intro) intro.style.display = "none";
+      document.body.classList.remove("intro-hidden");
+    });
+  }
+</script>
+
+  <div id="intro-screen">
+    <div class="intro-content">
+      <div class="intro-gallery">
+        <img src="images/intro1.jpg" class="active" alt="Intro 1">
+        <img src="images/intro2.jpg" alt="Intro 2">
+        <img src="images/intro3.jpg" alt="Intro 3">
+      </div>
+      <div class="intro-overlay">
+        <h1>Selamat Datang di SekawanTech.id</h1>
+        <p>Solusi Profesional untuk Mesin Industri Anda</p>
+        <button id="enter-site">Lanjut ke Halaman Utama</button>
+      </div>
+    </div>
+  </div>
+
+<header> 
+  <div class="logo"><a href="#home">SekawanTech.id</a></div>
+  <nav>
+    <ul class="nav-links">
+      <li class="dropdown">
+        <a href="javascript:void(0);">Beranda</a>
+        <ul>
+          <li><a href="beranda/tentang-kami.html">Tentang Kami</a></li>
+          <li><a href="beranda/visi-misi.html">Visi & Misi</a></li>
+        </ul>
+      </li>
+
+    <li class="dropdown">
+      <a href="#">Layanan</a>
+      <ul class="dropdown-content">
+        <li><a href="layanan/maintenance-rutin.html">Maintenance Rutin</a></li>
+        <li><a href="layanan/repair-troubleshoot.html">Repair & Troubleshoot</a></li>
+        <li><a href="layanan/overhaul-total.html">Overhaul Total</a></li>
+      </ul>
+    </li>
+    
+    <li><a href="#projects">Proyek</a></li>
+    <li><a href="#testimoni">Testimoni</a></li>
+    <li>
+      <a href="#contact">Kontak</a>
+      <ul>
+        <li><a href="#team">Anggota Kami</a></li>
+        <li><a href="#company-contact">Kontak Perusahaan</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+  <div class="hamburger" id="hamburger">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</header>
+<div class="overlay" id="overlay"></div>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <h1>SekawanTech.id</h1>
+    <p>Ahli Perawatan, Repair, dan Overhaul Mesin Industri — solusi presisi untuk performa mesin pabrik Anda.</p>
+    <div>
+      <a href="#projects" class="btn-primary">Lihat Proyek</a>
+      <a href="#company-contact" class="btn-secondary">Minta Penawaran</a>
+    </div>
+  </section>
+
+  <!-- Kenapa Pilih Kami -->
+  <section id="kenapa">
+    <h2>Kenapa Pilih Kami?</h2>
+    <p>Tim berpengalaman — Prosedur standar — Dokumentasi kerja lengkap — Garansi hasil.</p>
+  </section>
+
+  <!-- Layanan -->
+  <section id="layanan">
+    <h2>Layanan Unggulan</h2>
+    <div class="card" id="maintenance">
+      <h3>Maintenance Rutin</h3>
+      <p>Inspeksi & pelumasan berkala untuk menjaga performa mesin industri Anda.</p>
+    </div>
+    <div class="layanan-images">
+      <div class="buble-img"><img src="images/maintenance1.jpg" alt="Maintenance 1"></div>
+      <div class="buble-img"><img src="images/maintenance2.jpg" alt="Maintenance 2"></div>
+      <div class="buble-img"><img src="images/maintenance3.jpg" alt="Maintenance 3"></div>
+    </div>
+
+    <div class="card" id="repair">
+      <h3>Repair & Troubleshoot</h3>
+      <p>Analisis penyebab kerusakan dan perbaikan cepat dengan tim ahli.</p>
+    </div>
+    <div class="layanan-images">
+      <div class="buble-img"><img src="images/repair1.jpg" alt="Repair 1"></div>
+      <div class="buble-img"><img src="images/repair2.jpg" alt="Repair 2"></div>
+      <div class="buble-img"><img src="images/repair3.jpg" alt="Repair 3"></div>
+    </div>
+
+    <div class="card" id="overhaul">
+      <h3>Overhaul Total</h3>
+      <p>Pembongkaran dan perakitan ulang, termasuk penggantian komponen kritis.</p>
+    </div>
+    <div class="layanan-images">
+      <div class="buble-img"><img src="images/overhaul1.jpg" alt="Overhaul 1"></div>
+      <div class="buble-img"><img src="images/overhaul2.jpg" alt="Overhaul 2"></div>
+      <div class="buble-img"><img src="images/overhaul3.jpg" alt="Overhaul 3"></div>
+    </div>
+  </section>
+
+  <!-- Proyek -->
+  <section id="projects">
+    <h2>Proyek Terkini</h2>
+    <div class="card"><h3>Overhaul Mesin Produksi — PT. XYZ</h3><p>Peningkatan efisiensi sistem produksi melalui perawatan total unit utama.</p></div>
+    <div class="card"><h3>Maintenance Line A — Pabrik ABC</h3><p>Perawatan rutin line produksi untuk menjaga kestabilan output.</p></div>
+    <div class="card"><h3>Repair Sistem Hidrolik — Unit 5</h3><p>Perbaikan sistem tekanan tinggi dengan penggantian seal dan filter.</p></div>
+    <a href="proyek/index.html" class="btn-primary">Lihat Proyek Selengkapnya</a>
+
+  </section>
+
+  <!-- Testimoni -->
+  <section id="testimoni">
+  <h2>Testimoni</h2>
+  <div class="card">“Teknisi cepat & detail — downtime kami berkurang signifikan.” <div class="small">— PT. Sukses Makmur</div></div>
+  <div class="card">“Hasil overhaul seperti baru, dokumentasi kerja sangat rapi.” <div class="small">— Unit Produksi B</div></div>
+  <div class="card">“Respons cepat dan harga bersaing.” <div class="small">— Bengkel Mitra</div></div>
+  <a href="testimoni/index.html" class="btn-secondary">Lihat Semua Testimoni</a>
+</section>
+
+
+  <!-- Team / Anggota Kami -->
+  <section id="team">
+    <h2>Anggota Kami</h2>
+    <div class="team-grid">
+      <div class="team-card" data-name="Mokhamad Nurhafiz Haq" data-role="Senior Maintenance Engineer" data-bio="Mahasiswa Teknik Msin Produksi & Perawatan Politeknik Negeri Malang, Memiliki pengalaman 8 tahun di maintenance mesin industri. Ahli dalam troubleshooting dan preventive maintenance.">
+        <img src="images/anggota1.jpg" alt=""><h3>Mokhamad Nurhafiz Haq</h3><p>Senior Maintenance Engineer</p>
+      </div>
+      <div class="team-card" data-name="Salsabilla Irma Awalidya" data-role="Repair & Troubleshoot Specialist" data-bio="Mahasiswa Teknik Mesin Produksi & Perawatan Politeknik Negeri Malang, Berkecimpung di bidang repair & troubleshoot mesin industri selama 5 tahun. Ahli diagnosa kerusakan dan perbaikan cepat.">
+        <img src="images/anggota2.jpg" alt=""><h3>Salsabilla Irma Awalidya</h3><p>Repair & Troubleshoot Specialist</p>
+      </div>
+      <div class="team-card" data-name="Zidane Abdul Hafidz" data-role="Overhaul Engineer" data-bio="Mahasiswa Teknik Mesin Produksi & Perawatan Politeknik Negeri Malang, Spesialis overhaul mesin industri. Berpengalaman melakukan perbaikan total dan penggantian komponen kritis.">
+        <img src="images/anggota3.jpg" alt=""><h3>Zidane Abdul Hafidz</h3><p>Overhaul Engineer</p>
+      </div>
+      <div class="team-card" data-name="M Yusuf Firdan.A" data-role="Maintenance Planner" data-bio="Mahasiswa Teknik Mesin Produksi & Perawatan Politeknik Negeri Malang, Bertanggung jawab membuat jadwal maintenance & perencanaan preventive maintenance untuk lini produksi.">
+        <img src="images/anggota4.jpg" alt=""><h3>M Yusuf Firdan.A</h3><p>Maintenance Planner</p>
+      </div>
+      <div class="team-card" data-name="Dimas Kartiko Aji" data-role="Production Support Engineer" data-bio="Mahasiswa Teknik Mesin Produksi & Perawatan Politeknik Negeri Malang, Mendukung proses produksi dengan analisis teknis dan koordinasi antar tim maintenance dan operasi.">
+        <img src="images/anggota5.jpg" alt=""><h3>Dimas Kartiko Aji</h3><p>Production Support Engineer</p>
+      </div>
+      <div class="team-card" data-name="M.Nabhan Maarif" data-role="Documentation Specialist" data-bio="Mahasiswa Teknik Mesin Produksi & Perawatan Politeknik Negeri Malang, Bertugas mendokumentasikan seluruh prosedur, laporan maintenance, repair, dan overhaul.">
+        <img src="images/anggota6.jpg" alt=""><h3>M.Nabhan Maarif</h3><p>Documentation Specialist</p>
+      </div>
+      <div class="team-card" data-name="Valentino Roshi" data-role="Quality Control Engineer" data-bio="Mahasiswa Teknik Mesin Produksi & Perawatan Politeknik Negeri Malang, Memastikan kualitas mesin setelah maintenance, repair, atau overhaul sesuai standar perusahaan.">
+        <img src="images/anggota7.jpg" alt=""><h3>Valentino Roshi</h3><p>Quality Control Engineer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Popup -->
+  <div id="modal">
+    <div class="modal-content">
+      <span id="modal-close">&times;</span>
+      <h3 id="modal-name"></h3>
+      <p id="modal-role"></p>
+      <p id="modal-bio"></p>
+    </div>
+  </div>
+
+  <!-- Kontak Perusahaan -->
+  <section id="company-contact">
+    <h2>Kontak Perusahaan</h2>
+    <p>Alamat: Jl. Santai Berhadiah No.123, Kota Kediri</p>
+    <p>Telepon: (0341) 12345689</p>
+    <p>Email: info@sekawantech.id</p>
+
+    <div class="contact-form">
+      <h3>Kirim Pesan</h3>
+      <form action="mailto:info@sekawantech.id" method="post" enctype="text/plain">
+        <input type="text" name="Nama" placeholder="Nama Anda" required>
+        <input type="email" name="Email" placeholder="Email Anda" required>
+        <textarea name="Pesan" placeholder="Tulis pesan..." required></textarea>
+        <button type="submit">Kirim Pesan</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 SekawanTech.id • Dikelola oleh Kelompok 4 Teknik Mesin Produksi & Perawatan Psdku Kediri</p>
+  </footer>
+
+
+  
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.querySelector(".nav-links");
+    const overlay = document.getElementById("overlay");
+    const navItems = document.querySelectorAll(".nav-links > li > a");
+    const dropdownParents = document.querySelectorAll(".nav-links > li");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      overlay.classList.toggle("active");
+    });
+
+    overlay.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      overlay.classList.remove("active");
+    });
+
+    navItems.forEach(item => {
+      item.addEventListener("click", () => {
+        navItems.forEach(link => link.classList.remove("active"));
+        item.classList.add("active");
+        navLinks.classList.remove("active");
+        hamburger.classList.remove("open");
+        overlay.classList.remove("active");
+      });
+    });
+
+    dropdownParents.forEach(parent => {
+      parent.addEventListener("click", () => {
+        if(window.innerWidth <= 768){
+          parent.classList.toggle("open");
+        }
+      });
+    });
+
+   const elements = document.querySelectorAll("section h2, section p, section .card, .team-card, #visi-misi li, #company-contact h2, #company-contact p, #company-contact input, #company-contact textarea, #company-contact button");
+
+
+
+
+    const reveal = () => {
+      const trigger = window.innerHeight * 0.85;
+      elements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        const bottom = el.getBoundingClientRect().bottom;
+        if(top < trigger && bottom > 0) el.classList.add("visible");
+        else el.classList.remove("visible");
+      });
+    };
+    window.addEventListener("scroll", reveal);
+    reveal();
+
+    // Modal Team
+    const teamCards = document.querySelectorAll('.team-card');
+    const modal = document.getElementById('modal');
+    const modalName = document.getElementById('modal-name');
+    const modalRole = document.getElementById('modal-role');
+    const modalBio = document.getElementById('modal-bio');
+    const modalClose = document.getElementById('modal-close');
+
+    teamCards.forEach(card => {
+      card.addEventListener('click', () => {
+        modalName.textContent = card.dataset.name;
+        modalRole.textContent = card.dataset.role;
+        modalBio.textContent = card.dataset.bio;
+        modal.style.display = 'flex';
+      });
+    });
+
+    modalClose.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    modal.addEventListener('click', (e) => {
+      if(e.target === modal) modal.style.display = 'none';
+    });
+
+  
+const introScreen = document.getElementById("intro-screen");
+const enterBtn = document.getElementById("enter-site");
+const introImages = document.querySelectorAll(".intro-gallery img");
+let introIndex = 0;
+
+setInterval(() => {
+  introImages[introIndex].classList.remove("active");
+  introIndex = (introIndex + 1) % introImages.length;
+  introImages[introIndex].classList.add("active");
+}, 2000); // durasi 2 detik antar gambar
+
+enterBtn.addEventListener("click", () => {
+  introScreen.style.opacity = "0";
+  setTimeout(() => {
+    introScreen.style.display = "none";
+    document.body.classList.remove("intro-hidden");
+  }, 600);
+});
+
+document.body.classList.add("intro-hidden");
+
+  // Tambah transisi masuk saat halaman dibuka
+  window.onload = function() {
+    document.body.classList.add('loaded');
+  };
+
+  // Tambah transisi keluar saat klik link antar halaman
+  document.querySelectorAll('a[href$=".html"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const url = this.getAttribute('href');
+      if (url && url !== '#' && !url.startsWith('mailto')) {
+        e.preventDefault();
+        document.body.classList.remove('loaded');
+        setTimeout(() => {
+          window.location.href = url;
+        }, 400); // waktu fade out
+      }
+    });
+  });
+  // Dropdown layanan untuk mobile
+const dropdowns = document.querySelectorAll(".nav-links li.dropdown");
+
+dropdowns.forEach(drop => {
+  drop.addEventListener("click", (e) => {
+    if(window.innerWidth <= 768){
+      e.stopPropagation(); // agar click tidak menutup nav
+      drop.classList.toggle("open");
+    }
+  });
+});
+ 
+</script>
+
+<script>
+const introScreen = document.getElementById("intro-screen");
+const enterBtn = document.getElementById("enter-site");
+const galleryImages = document.querySelectorAll(".intro-gallery img");
+let currentImage = 0;
+
+// Fungsi slideshow intro
+function cycleIntroImages() {
+  galleryImages.forEach((img, i) => {
+    img.classList.toggle("active", i === currentImage);
+  });
+  currentImage = (currentImage + 1) % galleryImages.length;
+}
+setInterval(cycleIntroImages, 2500);
+
+// Saat tombol "Lanjut ke Halaman Utama" diklik
+enterBtn.addEventListener("click", () => {
+  introScreen.style.opacity = "0";
+  setTimeout(() => {
+    introScreen.style.display = "none";
+    document.body.classList.remove("intro-hidden");
+    sessionStorage.setItem("visited", "true"); // simpan status agar tidak muncul lagi saat pindah antar halaman
+  }, 600);
+});
+
+// Saat halaman dimuat
+window.addEventListener("DOMContentLoaded", () => {
+  const isFromSubPage = document.referrer.includes(window.location.hostname);
+  const hasVisited = sessionStorage.getItem("visited");
+
+  if (isFromSubPage && hasVisited) {
+    // Jika user datang dari halaman internal dan sudah pernah klik "Lanjut", langsung tampilkan halaman utama
+    introScreen.style.display = "none";
+    document.body.classList.remove("intro-hidden");
+  } else {
+    // Jika user baru buka atau refresh halaman utama, tampilkan intro
+    document.body.classList.add("intro-hidden");
+  }
+});
+</script>
+<script>
+
+.nav-links li ul {
+  display: none;
+  position: absolute;
+  top: 100%
+  left: 0
+  background: var(--primary-color);
+  padding: 10px 0;
+  border-radius: 6px;
+  min-width: 180px;
+  z-index: 105;
+}
+
+/* show on hover for desktop */
+@media (min-width: 769px) {
+  .nav-links li:hover > ul { display: block; }
+}
+
+/* mobile: make submenu static and accordion */
+@media (max-width: 768px) {
+  .nav-links { /* already fixed / slide-in */ }
+
+  /* make submenu flow inside mobile menu, hide by height */
+  .nav-links li ul {
+    position: static;        /* flow inside menu, so no overlap */
+    display: block;          /* keep in DOM but hide with max-height */
+    max-height: 0;           /* collapsed */
+    overflow: hidden;
+    transition: max-height 0.32s ease;
+    padding-left: 16px;      /* indent submenu */
+    border-left: 3px solid rgba(229,9,20,0.12);
+    margin-left: 12px;
+    background: transparent;
+  }
+
+  /* when parent open -> expand submenu (adjust max-height if many items) */
+  .nav-links li.open > ul {
+    max-height: 480px; /* large enough, will clip if more; increase if needed */
+  }
+
+  /* style submenu links for readability */
+  .nav-links li ul li a {
+    display: block;
+    padding: 10px 8px;
+    color: #fff;
+  }
+
+  /* ensure parent link shows it's expandable */
+  .nav-links li > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* little caret indicator */
+  .nav-links li > a .caret {
+    margin-left: 8px;
+    transform: rotate(0deg);
+    transition: transform 0.25s ease;
+    font-size: 12px;
+    opacity: 0.9;
+  }
+  .nav-links li.open > a .caret {
+    transform: rotate(90deg);
+  }
+}
+</script>
+
+</body>
+</html>

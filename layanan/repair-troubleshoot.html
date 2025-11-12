@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SekawanTech.id | Repair & Troubleshoot</title>
+<style>
+:root {
+  --primary-color: #000;
+  --accent-color: #e50914;
+  --text-light: #fff;
+  --bg-color: #111;
+}
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Arial', sans-serif;}
+body {background: var(--bg-color); color: var(--text-light);}
+a {text-decoration:none; color:inherit;}
+ul {list-style:none;}
+
+/* Header */
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 25px;
+  position:sticky;
+  top:0;
+  background: var(--primary-color);
+  z-index:100;
+}
+.logo a {color: var(--accent-color); font-weight:bold; font-size:1.6em;}
+.nav-links {
+  display:flex;
+  gap:25px;
+  align-items:center;
+  transition:0.4s;
+}
+.nav-links li {position:relative;}
+.nav-links li a:hover {color:var(--accent-color);}
+
+/* Dropdown */
+.dropdown ul {
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background: var(--primary-color);
+  padding:10px 0;
+  border-radius:6px;
+  min-width:180px;
+  z-index:105;
+}
+.dropdown:hover ul {display:block;}
+.dropdown ul li a {display:block; padding:8px 20px;}
+.dropdown ul li a:hover {background:rgba(255,255,255,0.1);}
+
+/* Hamburger */
+.hamburger {
+  display:none;
+  flex-direction:column;
+  cursor:pointer;
+  z-index:110;
+}
+.hamburger .bar {
+  width:25px; height:3px; background:white; margin:4px 0;
+}
+
+/* Overlay */
+.overlay {
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.6);
+  z-index:90;
+}
+
+/* Hero & Sections */
+.hero {
+  text-align:center;
+  padding:100px 20px;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(17,17,17,0.6)), url('../images/repair1.jpg') center/cover no-repeat;
+  background-attachment:fixed;
+}
+.hero h1 {font-size:2.5em; margin-bottom:15px; color: var(--accent-color);}
+.hero p {font-size:1.2em; max-width:600px; margin:0 auto;}
+
+section {padding:60px 20px; text-align:center;}
+h2 {margin-bottom:30px; color: var(--accent-color);}
+.card {max-width:800px; margin:0 auto 40px; padding:25px; background:rgba(0,0,0,0.7); border-radius:12px; border:1px solid rgba(255,255,255,0.1);}
+.layanan-images {display:flex; justify-content:center; gap:20px; flex-wrap:wrap;}
+.buble-img img {width:220px; height:150px; object-fit:cover; border-radius:12px; transition:0.3s;}
+.buble-img img:hover {transform:scale(1.05);}
+
+#company-contact {background:#111;}
+.contact-form {max-width:500px; margin:20px auto;}
+.contact-form input, .contact-form textarea {width:100%; padding:12px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc; background:#222; color:#fff;}
+.contact-form button {background:var(--accent-color); color:#fff; padding:12px 20px; border:none; border-radius:8px; cursor:pointer;}
+.contact-form button:hover {background:#b20610;}
+
+footer {text-align:center; padding:20px; background:#000; color:#aaa;}
+
+/* Mobile */
+@media(max-width:768px){
+  .nav-links {
+    position:fixed;
+    top:0; right:-100%;
+    height:100%; width:70%;
+    flex-direction:column; gap:30px;
+    background:var(--primary-color); padding-top:100px;
+    transition:0.4s;
+    z-index:110;
+  }
+  .nav-links.active {right:0;}
+  .nav-links li {width:100%; text-align:left; padding-left:20px;}
+  .dropdown ul {position:static; display:none; padding:0;}
+  .dropdown.active ul {display:flex; flex-direction:column;}
+  .hamburger {display:flex;}
+  .overlay.active {display:block;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><a href="../index.html">SekawanTech.id</a></div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="../index.html">Beranda</a></li>
+      <li class="dropdown">
+        <a href="javascript:void(0);" class="dropdown-toggle">Layanan</a>
+        <ul>
+          <li><a href="maintenance-rutin.html">Maintenance Rutin</a></li>
+          <li><a href="repair-troubleshoot.html">Repair & Troubleshoot</a></li>
+          <li><a href="overhaul-total.html">Overhaul Total</a></li>
+        </ul>
+      </li>
+      <li><a href="#company-contact">Kontak</a></li>
+    </ul>
+  </nav>
+  <div class="hamburger" id="hamburger">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</header>
+
+<div class="overlay" id="overlay"></div>
+
+<section class="hero">
+  <h1>Repair & Troubleshoot</h1>
+  <p>Perbaikan cepat dan solusi masalah mesin agar operasional tetap lancar dan aman.</p>
+</section>
+
+<section id="layanan-detail">
+  <h2>Detail Layanan</h2>
+  <div class="card">
+    <p>Layanan repair & troubleshoot mencakup diagnosa kerusakan, perbaikan komponen kritis, penggantian suku cadang, dan pengujian performa agar mesin kembali optimal.</p>
+    <p>Pemeliharaan preventif: Jadwal perawatan berkala untuk menjaga performa mesin dan memperpanjang umur pakainya.</p>
+    <p>Inspeksi menyeluruh: Pemeriksaan detail untuk mengidentifikasi potensi masalah sebelum menjadi besar.</p>
+    <p> Upgrade dan modifikasi: Peningkatan komponen untuk meningkatkan efisiensi dan produktivitas mesin Anda.</p>
+  </div>
+  <div class="layanan-images">
+    <div class="buble-img"><img src="../images/repair1.jpg" alt="Repair 1"></div>
+    <div class="buble-img"><img src="../images/repair2.jpg" alt="Repair 2"></div>
+    <div class="buble-img"><img src="../images/repair3.jpg" alt="Repair 3"></div>
+    <div class="buble-img"><img src="../images/repair4.jpg" alt="Repair 4"></div>
+    <div class="buble-img"><img src="../images/repair5.jpg" alt="Repair 5"></div>
+  </div>
+</section>
+
+<section id="company-contact">
+  <h2>Kontak Perusahaan</h2>
+  <p>Alamat: Jl. Santai Berhadiah No.123, Kota Malang</p>
+  <p>Telepon: (0341) 12345689</p>
+  <p>Email: info@sekawantech.id</p>
+  <div class="contact-form">
+    <h3>Kirim Pesan</h3>
+    <form action="mailto:info@sekawantech.id" method="post" enctype="text/plain">
+      <input type="text" name="Nama" placeholder="Nama Anda" required>
+      <input type="email" name="Email" placeholder="Email Anda" required>
+      <textarea name="Pesan" placeholder="Tulis pesan..." required></textarea>
+      <button type="submit">Kirim Pesan</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 SekawanTech.id • Dikelola oleh Kelompok 4</p>
+</footer>
+
+<script>
+// Hamburger toggle
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.querySelector('.nav-links');
+const overlay = document.getElementById('overlay');
+hamburger.addEventListener('click', ()=>{
+  navLinks.classList.toggle('active');
+  overlay.classList.toggle('active');
+});
+
+// Close overlay click
+overlay.addEventListener('click', ()=>{
+  navLinks.classList.remove('active');
+  overlay.classList.remove('active');
+});
+
+// Dropdown toggle mobile
+const dropdownToggle = document.querySelector('.dropdown-toggle');
+const dropdown = dropdownToggle.parentElement;
+dropdownToggle.addEventListener('click', ()=>{
+  dropdown.classList.toggle('active');
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SekawanTech.id | Testimoni Lengkap</title>
+  <style>
+    :root {
+      --primary-color: #000;
+      --accent-color: #e50914;
+      --text-light: #f1f1f1;
+    }
+
+    body {
+      margin:0;
+      font-family:"Poppins", sans-serif;
+      background:#111;
+      color: var(--text-light);
+      overflow-x: hidden;
+    }
+
+    header, footer {
+      text-align:center;
+      padding:20px;
+      background: var(--primary-color);
+      color:#aaa;
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    h1,h2 {
+      color: var(--accent-color);
+      text-align:center;
+      margin:20px 0;
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .testimonial-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+      padding:20px;
+      opacity:0;
+      transform:translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .testimonial-grid.visible {
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .testimonial-card {
+      background: rgba(0,0,0,0.85);
+      padding:20px;
+      border-radius:12px;
+      text-align:center;
+      box-shadow:0 0 15px rgba(229,9,20,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .testimonial-card:hover {
+      transform: scale(1.02);
+      box-shadow:0 0 25px rgba(229,9,20,0.3);
+    }
+
+    .testimonial-card img {
+      width:100%;
+      height:200px;
+      object-fit:cover;
+      border-radius:8px;
+      margin-bottom:15px;
+      transition: transform 0.3s;
+    }
+
+    .testimonial-card img:hover {
+      transform: scale(1.05);
+    }
+
+    .testimonial-card p {
+      font-size:0.9em;
+      line-height:1.5;
+    }
+
+    .btn-back {
+      display:inline-block;
+      margin:20px 0;
+      padding:12px 25px;
+      border-radius:8px;
+      background: var(--accent-color);
+      color:white;
+      font-weight:600;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .btn-back:hover {
+      transform: scale(1.05);
+      background: #b20610;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Testimoni Lengkap</h1>
+    <p>Ulasan & pengalaman pelanggan kami</p>
+    <a href="../index.html" class="btn-back">← Kembali ke Beranda</a>
+  </header>
+
+  <section class="testimonial-grid" id="testimonial-grid">
+    <div class="testimonial-card">
+      <img src="../images/testimoni1.jpg" alt="Testimoni 1">
+      <p>“Teknisi sangat cepat & profesional, downtime berkurang signifikan.”</p>
+      <p class="small">— PT. Sukses Makmur</p>
+    </div>
+
+    <div class="testimonial-card">
+      <img src="../images/testimoni2.jpg" alt="Testimoni 2">
+      <p>“Hasil overhaul seperti baru, dokumentasi lengkap dan rapi.”</p>
+      <p class="small">— Unit Produksi B</p>
+    </div>
+
+    <div class="testimonial-card">
+      <img src="../images/testimoni3.jpg" alt="Testimoni 3">
+      <p>“Respons cepat dan harga bersaing, puas dengan layanan.”</p>
+      <p class="small">— Bengkel Mitra</p>
+    </div>
+
+    <div class="testimonial-card">
+      <img src="../images/testimoni4.jpg" alt="Testimoni 4">
+      <p>“Maintenance rutin membuat mesin tetap prima tanpa gangguan.”</p>
+      <p class="small">— Pabrik ABC</p>
+    </div>
+
+    <div class="testimonial-card">
+      <img src="../images/testimoni5.jpg" alt="Testimoni 5">
+      <p>“Overhaul total tim SekawanTech membuat mesin kami seperti baru kembali.”</p>
+      <p class="small">— PT. XYZ</p>
+    </div>
+
+    <!-- Tambahkan card lain sesuai kebutuhan -->
+  </section>
+
+  <footer>
+    <p>© 2025 SekawanTech.id</p>
+  </footer>
+
+  <script>
+    // Animasi masuk saat scroll
+    const testimonialGrid = document.getElementById('testimonial-grid');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.2});
+
+    observer.observe(testimonialGrid);
+  </script>
+
+</body>
+</html>
