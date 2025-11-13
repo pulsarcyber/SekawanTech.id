@@ -36,7 +36,7 @@
 .nav-links li.dropdown ul {
   display: none;
   position: absolute;
-  top: 35px;
+  top: 100%;
   left: 0;
   background: #000;
   list-style: none;
@@ -430,13 +430,13 @@ body.intro-hidden {
     
     <li><a href="#projects">Proyek</a></li>
     <li><a href="#testimoni">Testimoni</a></li>
-    <li>
-      <a href="#contact">Kontak</a>
-      <ul>
-        <li><a href="#team">Anggota Kami</a></li>
-        <li><a href="#company-contact">Kontak Perusahaan</a></li>
-      </ul>
-    </li>
+    <li class="dropdown">
+  <a href="#contact">Kontak</a>
+  <ul>
+    <li><a href="#team">Anggota Kami</a></li>
+    <li><a href="#company-contact">Kontak Perusahaan</a></li>
+  </ul>
+</li>
   </ul>
 </nav>
 
@@ -820,6 +820,5 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 }
 </script>
-
 </body>
 </html>
